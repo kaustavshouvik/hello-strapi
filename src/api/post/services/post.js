@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * legend service
+ * post service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::legend.legend');
+module.exports = createCoreService('api::post.post');

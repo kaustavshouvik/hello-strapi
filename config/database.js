@@ -1,11 +1,17 @@
-const path = require('path');
-
+// strapi-api/config/database.js
 module.exports = ({ env }) => ({
   connection: {
-    client: 'sqlite',
+    client: "postgres",
     connection: {
-      filename: path.join(__dirname, '..', env('DATABASE_FILENAME', '.tmp/data.db')),
+      host: env("DB_HOST"),
+      port: env.int("DB_PORT"),
+      database: env("DB_NAME"),
+      user: env("DB_USERNAME"),
+      password: env("DB_PASSWORD"),
+      ssl: {
+        rejectUnauthorized: env.bool("DB_SSL_SELF", false),
+      },
     },
-    useNullAsDefault: true,
+    debug: false,
   },
 });
